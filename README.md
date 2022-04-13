@@ -40,3 +40,28 @@ React Firebase Hooks Is a github repository by Chrisbianca...
 5. One important Notice is, where ever we are going to use Current User we would have to Create useAuthState(auth) and take [user] from it to observe....
 
 
+
+## About Require Auth/ Protected Route....
+
+1. RequireAuth is a React Router authentication system of creating Protected Route...
+2. Go to React Router Documentation > authentication 
+3. Here we can find a Link of StackBlitz... (https://stackblitz.com/github/remix-run/react-router/tree/main/examples/auth?file=src/App.tsx)
+
+4. in here we can see the RequireAuth Function that we can use in Components
+
+
+### Steps of using Require Auth...
+1. Create RequireAuth Folder in Components, 
+2. use rsc to create function....
+3. Take Children from Props, As the protected Route will be there in inside the Children Space of RequireAuth Component..
+3. now follow the StackBlitz...
+4. Functionality is if there isn't a user we get In our case using useAuthState from firebase hooks we are going to Navigate the user using <Navigate> Component
+5. Other when there is a User Logged in, we are Going to return The Route we got from Children.....
+6. Other Props in Navigate rather than (to=""), are:- state={{ from: location }} replace,
+7. As far as we Understand Now State from: location is to Capture the Location we went from using Navigate Component,
+ 
+
+
+
+
+
