@@ -59,6 +59,43 @@ React Firebase Hooks Is a github repository by Chrisbianca...
 5. Other when there is a User Logged in, we are Going to return The Route we got from Children.....
 6. Other Props in Navigate rather than (to=""), are:- state={{ from: location }} replace,
 7. As far as we Understand Now State from: location is to Capture the Location we went from using Navigate Component,
+
+
+## About state={{ from: location }} replace , props and Their Uses...
+
+1. Notice These Lines in RequireAuth in StackBlitz....
+
+*   // Redirect them to the /login page, but save the current location they were
+    // trying to go to when they were redirected.
+* This allows us to send them
+    // along to that page after they login, which is a nicer user experience
+    // than dropping them off on the home page.
+
+    2. Describing these two Props we are Sending In <Navigate> Component to use IN that  authentication Component we Are Navigating to.... And Have to come back or redirect using these twq....
+
+
+    ## Redirecting back to Location in Login Page.....
+
+    1. StackBlitz Link:- Same in Require Auth....
+    2. Created a Handler function so that we could Navigate after the sign in is Successful using .then()
+    3. Describing this Line.. let from = location.state?.from?.pathname || "/";
+    * we are setting from to redirect here, getting it from location.state.from.pathname 
+    * state we Set before when we navigated using <Navigate> component in RequireAuth
+    * if state not found redirect to Home Page ("/")
+    4.  Description of: { replace: true }
+    * replace true means to delete the history of location we came from after we redirected  to the Child route from Login, There Can be multiple numbers of Protected Route, so redirecting to them after signing in requires deleting the history we came from every time....
+    5. Notice these lines in StackBlitz..
+    * Send them back to the page they tried to visit when they were
+       redirected to the login page. 
+       * Use { replace: true } so we don't create
+       another entry in the history stack for the login page.  
+       * This means that
+       when they get to the protected page and click the back button, they
+     won't end up back on the login page, which is also really nice for the
+    user experience.
+
+
+
  
 
 
